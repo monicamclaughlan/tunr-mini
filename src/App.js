@@ -37,7 +37,7 @@ const handleCreate = (newSong) => {
 
   return (
     <div className="App">
-      <SongList songs={songs}/>
+      <SongList songs={songs} setFavoriteSongs={setFavoriteSongs}/>
       <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
 
