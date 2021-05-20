@@ -16,14 +16,14 @@ function App() {
     favorite: false
   }
   const [songs, setSongs] = useState([emptySong])
-
+  const [favoriteSongs, setFavoriteSongs] = useState([])
   return (
     <div className="App">
       <SongList songs={songs}/>
-      <FavoriteSongs songs={songs}/> 
+      <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
 
-      <AddSong songs={songs} label="create"/>
+      <AddSong songs={songs} favoriteSongs={favoriteSongs} label="create"/>
     </div>
   );
 }
