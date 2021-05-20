@@ -18,7 +18,10 @@ function App() {
     time: "", 
     favorite: false
   }
-const [songs, setSongs] = useState([emptySong])
+  
+  const [songs, setSongs] = useState([emptySong])
+  const [favoriteSongs, setFavoriteSongs] = useState([])
+
 
   // handleCreate - function for when create is submitted
 const handleCreate = (newSong) => { 
@@ -35,10 +38,12 @@ const handleCreate = (newSong) => {
   return (
     <div className="App">
       <SongList songs={songs}/>
-      <FavoriteSongs songs={songs}/> 
+      <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
       {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
 
+
       <AddSong song={emptySong} label="create" handleSubmit={handleCreate}/>
+
     </div>
   );
 }
