@@ -16,6 +16,9 @@ const handleChange = (event) => {
 };
 
 return (
+    <>
+   <h1>ADD A NEW SONG</h1> 
+
   <form onSubmit={handleSubmit}>
       <input
       type="text"
@@ -41,6 +44,7 @@ return (
 
     <input type="submit" value={props.label} />
   </form>
+  </>
 );
 }
 
