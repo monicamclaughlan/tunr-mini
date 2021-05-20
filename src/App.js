@@ -22,6 +22,17 @@ function App() {
   const [songs, setSongs] = useState([emptySong])
   const [favoriteSongs, setFavoriteSongs] = useState([])
 
+  // getSongs function 
+  const getSongs = () => { 
+    fetch(url + '/songs/')
+    .then((response) => response.json())
+    .then((data) => setSongs(data))
+  }
+
+   // when screen loads, get list of all coffees
+   useEffect(() => { 
+    getSongs()
+  }, [])
 
   // handleCreate - function for when create is submitted
 const handleCreate = (newSong) => { 
