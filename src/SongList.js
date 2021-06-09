@@ -18,7 +18,7 @@ const SongList = ({songs, addToFavorites, deleteSong})=>{
 
 // loading sends back a div containing articles that show song info if songs have been added
     const loaded = ()=>(
-        <div>
+        <div className="playlist">
             <h1>Playlist</h1>
             {songs.map((song)=>(
                 <article className ="song" key={song.songId}>

@@ -20,10 +20,10 @@ const favSongs = favoriteSongs.map((song, index) => {
  
 
   return (
-    <>
+    <div className="favorites">
     <h1>Favorite Songs List</h1>
     <h1>{favSongs}</h1>
-    </>
+    </div>
   )
   
   //deconstruct songs from props

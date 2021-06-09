@@ -68,7 +68,7 @@ const removeFromFavorites = (index) => setFavoriteSongs(favoriteSongs.filter((cu
       <hr/>
       <SongList songs={songs} addToFavorites={addToFavorites} deleteSong={deleteSong}/>
       <FavoriteSongs favoriteSongs={favoriteSongs} removeFromFavorites={removeFromFavorites}/> 
-      <AddSong song={emptySong} label="create" handleSubmit={handleCreate}/>
+      <AddSong song={emptySong} label="Add New Song" handleSubmit={handleCreate}/>
 
     </div>
   );
