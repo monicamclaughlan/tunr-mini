@@ -35,6 +35,13 @@ margin: 2em;
   border: none;
   background-color: white;
 }
+
+.song button:hover { 
+  cursor: pointer;
+}
+.delete-song:hover { 
+  cursor: pointer;
+}
 .colorChange { 
   background-color: red;
 }

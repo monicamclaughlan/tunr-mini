@@ -35,7 +35,7 @@ const SongList = ({songs, addToFavorites, deleteSong})=>{
                     song.favorite = true
                     }}>
                     <AiFillHeart color={song.favorite ? "red":"black"} /></button>
-                    <h3 onClick={() => {deleteSong(song)}}>X</h3>
+                    <h3 className="delete-song" onClick={() => {deleteSong(song)}}>X</h3>
                 </article>
             ))}
         </div>
