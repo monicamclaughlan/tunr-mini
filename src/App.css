@@ -49,5 +49,15 @@ input {
 input[type=submit] { 
   background-color: red;
   color: white;
-  
+
+}
+
+.favorite-list { 
+  width: 100%;
+  display:flex;
+  margin: 2em;
+}
+
+.favorite-list p { 
+  padding: 5px;
 }
