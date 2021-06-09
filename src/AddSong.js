@@ -8,7 +8,10 @@ const [formData, setFormData] = React.useState(props.song);
 const handleSubmit = (event) => {
   event.preventDefault(); // Prevent Form from Refreshing
   props.handleSubmit(formData); // Submit to Parents desired function
-  props.history.push("/"); //Push back to display page 
+  // props.history.push("/"); //Push back to display page 
+  formData.title = ""
+  formData.artist = ""
+  formData.time = ""
 };
 
 const handleChange = (event) => {

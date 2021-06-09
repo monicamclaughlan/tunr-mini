@@ -1,11 +1,13 @@
 import './App.css';
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import FavoriteSongs from "./FavoriteSongs"
 import AddSong from './AddSong'
 import SongList from './SongList'
 
 function App() {
-const url = "https://songs-329-tunr-backend.herokuapp.com"
+// const url = "https://songs-329-tunr-backend.herokuapp.com"
+
+const url =  "https://opgbi0w9if.execute-api.us-east-2.amazonaws.com/dev"
 
   const emptySong = { 
     title: "", 
@@ -21,10 +23,13 @@ const url = "https://songs-329-tunr-backend.herokuapp.com"
   const getSongs = () => { 
     fetch(url + '/songs/')
     .then((response) => response.json())
-    .then((data) => setSongs(data))
+    .then((data) => {
+      setSongs(data.body)
+      console.log(data.body)
+    })
   }
 
-   // when screen loads, get list of all coffees
+   // when screen loads, get list of all songs
    useEffect(() => { 
     getSongs()
   }, [])
@@ -41,13 +46,28 @@ const handleCreate = (newSong) => {
   .then(() => getSongs())
 }
 
+//deleteSong - function for deleting song
+const deleteSong = (song) => { 
+  fetch (url + "/songs/" + song.songId, { 
+    method: "delete"
+  })
+  .then(() => getSongs())
+}
+
+
+const addToFavorites = (title) => { 
+    setFavoriteSongs([...favoriteSongs, title])
+}
+
+const removeFromFavorites = (index) => setFavoriteSongs(favoriteSongs.filter((currentValue,currentIndex) => currentIndex !== index))
+
   return (
     <div className="App">
-      <SongList songs={songs} setFavoriteSongs={setFavoriteSongs}/>
-      <FavoriteSongs songs={songs} favoriteSongs={favoriteSongs}/> 
-      {/* <FavoriteSongs songs={[{title:"Purple Rain"}, {artist:"Prince"}, {time:"6:66"}]}/> */}
-
-
+      <h1 className="title">TUNR.</h1>
+      <h3 className="subtitle">For all your playlist needs</h3>
+      <hr/>
+      <SongList songs={songs} addToFavorites={addToFavorites} deleteSong={deleteSong}/>
+      <FavoriteSongs favoriteSongs={favoriteSongs} removeFromFavorites={removeFromFavorites}/> 
       <AddSong song={emptySong} label="create" handleSubmit={handleCreate}/>
 
     </div>
